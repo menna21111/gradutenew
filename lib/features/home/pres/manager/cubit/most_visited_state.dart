@@ -18,7 +18,7 @@ class MostVisitedFailure extends MostVisitedState {
 }
 
 class MostVisitedSuccess extends MostVisitedState {
-  final List<MostVisitedModel> MostVisitedlist;
+  final List<MostVisitedModel> mostVisitedlist;
 
-  const MostVisitedSuccess(this.MostVisitedlist);
+  const MostVisitedSuccess(this.mostVisitedlist);
 }

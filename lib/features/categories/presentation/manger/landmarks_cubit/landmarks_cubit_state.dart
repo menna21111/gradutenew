@@ -18,7 +18,7 @@ class LandmarksCubitFailure extends LandmarksCubitState {
 }
 
 class LandmarksCubitSuccess extends LandmarksCubitState {
-  final List<LandmarkOnCatModel> Landmarklist;
+  final List<LandmarkOnCatModel> landmarklist;
 
-  const LandmarksCubitSuccess(this.Landmarklist);
+  const LandmarksCubitSuccess(this.landmarklist);
 }

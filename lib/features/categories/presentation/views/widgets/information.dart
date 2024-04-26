@@ -35,13 +35,12 @@ class Information extends StatelessWidget {
                   );
                 },
                 child: Text(
-                  '${BlocProvider.of<MoreInfoCubit>(context).Text}',
+                  '${BlocProvider.of<MoreInfoCubit>(context).text}',
                   style: Textstyle.textStyle12
                       .copyWith(fontWeight: FontWeight.w400, height: 1.5),
                 ),
               ),
-              if (BlocProvider.of<MoreInfoCubit>(context)
-                          .showView_more_Details ==
+              if (BlocProvider.of<MoreInfoCubit>(context).showViewMoreDetails ==
                       true &&
                   showFullText == false)
                 Padding(

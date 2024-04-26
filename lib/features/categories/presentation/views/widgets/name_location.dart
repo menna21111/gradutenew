@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:graduation/constants.dart';
 import 'package:graduation/core/utils/style.dart';
 
-class locationtionwidget extends StatelessWidget {
-  const locationtionwidget({
+class CustomNameLocation extends StatelessWidget {
+  const CustomNameLocation({
     super.key,
     required this.name,
     required this.location,
   });
   final String name;
-    final String location;
-
+  final String location;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +34,7 @@ class locationtionwidget extends StatelessWidget {
               ),
               const SizedBox(width: 7),
               Text(
-               location,
+                location,
                 style: Textstyle.textStyle16,
               ),
             ],

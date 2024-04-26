@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:graduation/features/categories/data/repos/categories_repo.dart';
 import 'package:graduation/features/home/data/models/most_visited_model/most_visited_model.dart';
@@ -11,12 +11,10 @@ class MostVisitedCubit extends Cubit<MostVisitedState> {
   Future<void> fetchmostvisited() async {
     emit(MostVisitedLoading());
     var result = await mostvisitedrepo.fetchmostvisited();
-    result.fold((Failure) {
-      emit(MostVisitedFailure(Failure.message));
+    result.fold((failure) {
+      emit(MostVisitedFailure(failure.message));
     }, (mostvisited) {
       emit(MostVisitedSuccess(mostvisited));
     });
   }
 }
-
-

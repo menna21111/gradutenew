@@ -6,17 +6,17 @@ import 'package:graduation/features/categories/presentation/views/widgets/custom
 import 'package:graduation/features/search/presentation/manager/searh_cubit.dart';
 import 'package:graduation/features/search/presentation/manager/searh_cubit_state.dart';
 
-class searhresultgrid extends StatelessWidget {
-  const searhresultgrid({super.key});
+class SearhResultGrid extends StatelessWidget {
+  const SearhResultGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<searchCubit, searchstate>(listener: (context, state) {
-      if (state is searchfailure) {
+    return BlocConsumer<SearchCubit, SearchStates>(listener: (context, state) {
+      if (state is SearchFailure) {
         GoRouter.of(context).push('/Information');
       }
     }, builder: (context, state) {
-      if (state is searchsuccess) {
+      if (state is SearchSuccess) {
         return GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: (MediaQuery.of(context).size.width * .431) /
@@ -37,12 +37,12 @@ class searhresultgrid extends StatelessWidget {
           },
           itemCount: state.landmark.length,
         );
-      } else if (state is searchloading) {
+      } else if (state is SearchLoading) {
         return const CustomLoadingWidget();
       } else {
         //   GoRouter.of(context).push('/Information');
         // }
-        return SizedBox();
+        return const SizedBox();
       }
     });
   }

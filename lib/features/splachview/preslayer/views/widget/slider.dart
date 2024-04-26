@@ -4,13 +4,15 @@ import 'package:graduation/core/utils/assets.dart';
 import 'package:graduation/core/utils/imageprop.dart';
 
 class ImageSlider extends StatelessWidget {
+  const ImageSlider({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height * .35,
       width: MediaQuery.of(context).size.width,
       child: CarouselSlider(
-          items: [
+          items: const [
             //1st Image of Slider
             ImageContainerModel(
               imagePath: AssetsData.slide1,
@@ -41,7 +43,7 @@ class ImageSlider extends StatelessWidget {
             enlargeCenterPage: true,
             enlargeFactor: 0.3,
             pageSnapping: true,
-            autoPlayInterval: Duration(seconds: 2),
+            autoPlayInterval: const Duration(seconds: 2),
             autoPlayCurve: Curves.fastOutSlowIn,
             autoPlayAnimationDuration: const Duration(milliseconds: 200),
           )),
