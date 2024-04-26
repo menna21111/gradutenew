@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class arrow extends StatelessWidget {
-  arrow({super.key, this.onTap});
-  VoidCallback? onTap;
+class CustomArrow extends StatelessWidget {
+  const CustomArrow({super.key, this.onTap});
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
     return Padding(

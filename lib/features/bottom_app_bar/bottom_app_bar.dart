@@ -5,34 +5,37 @@ import '../../core/widgets/appbar.dart';
 import '../image_upload/presentation/pages/image_upload_page.dart';
 import '../../constants.dart';
 import '../categories/presentation/views/categories_view.dart';
-import '../home/pres/views/homeview.dart';
+import '../home/pres/views/home_view.dart';
 import '../splachview/preslayer/views/widget/custom_drawer.dart';
 
 class BottomNavigation extends StatefulWidget {
-  const BottomNavigation({Key? key}) : super(key: key);
+  const BottomNavigation({super.key});
 
   @override
-  _BottomNavigationExampleState createState() =>
-      _BottomNavigationExampleState();
+  State<BottomNavigation> createState() => _BottomNavigationState();
 }
 
-class _BottomNavigationExampleState extends State {
-  int _selectedTab = 1;
+class _BottomNavigationState extends State<BottomNavigation> {
+  int selectedTab = 1;
 
-  List _pages = [CategoriesView(), Homepage(), ImagesUploadPage()];
+  final List pages = [
+    const CategoriesView(),
+    const HomeView(),
+    const ImagesUploadPage()
+  ];
 
   _changeTab(int index) {
     setState(() {
-      _selectedTab = index;
+      selectedTab = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
-      drawer: CustomDrawer(),
-      body: _pages[_selectedTab],
+      appBar: const CustomAppBar(),
+      drawer: const CustomDrawer(),
+      body: pages[selectedTab],
       bottomNavigationBar: ConvexAppBar(
         backgroundColor: ksecondcolor,
         style: TabStyle.react,

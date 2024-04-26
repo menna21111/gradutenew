@@ -1,29 +1,27 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation/constants.dart';
-import 'package:graduation/core/widgets/custo%20textfield.dart';
-import 'package:graduation/features/search/presentation/manager/searh_cubit.dart';
-import '../../features/home/pres/views/widget/app_filter.dart';
+import 'package:graduation/core/widgets/custom_textfield.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const CustomAppBar({super.key});
+
   @override
-  Size get preferredSize => Size.fromHeight(45.0);
+  Size get preferredSize => const Size.fromHeight(45.0);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      iconTheme:const IconThemeData(color:  Colors.white),
+      iconTheme: const IconThemeData(color: Colors.white),
       //automaticallyImplyLeading: false,
       backgroundColor: abarcolor,
       elevation: 1, // Removes the shadow
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-            child: customtextfield(),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+            child: CustomTextField(),
           ),
           IconButton(
             icon: const Icon(Icons.language, color: Colors.white),
@@ -42,4 +40,3 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 }
-

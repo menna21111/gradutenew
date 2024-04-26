@@ -18,6 +18,6 @@ class CategoriesView extends StatelessWidget {
             CategoriesCubitCubit(CategoriesRepoImpl(ApiService(Dio())))
               ..fetchCategories(),
       )
-    ], child: CategoriesViewBody()));
+    ], child: const CategoriesViewBody()));
   }
 }

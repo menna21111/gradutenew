@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:graduation/features/categories/data/model/landmark_on_cat_model/landmark_on_cat_model.dart';
 import 'package:graduation/features/categories/data/repos/categories_repo.dart';
@@ -11,8 +11,8 @@ class LandmarksCubitCubit extends Cubit<LandmarksCubitState> {
   Future<void> fetchlandmarks({required String categoryId}) async {
     emit(LandmarksCubitLoading());
     var result = await landmarkrepo.fetchlandmarks(categoryId: categoryId);
-    result.fold((Failure) {
-      emit(LandmarksCubitFailure(Failure.message));
+    result.fold((failure) {
+      emit(LandmarksCubitFailure(failure.message));
     }, (lamdmarks) {
       emit(LandmarksCubitSuccess(lamdmarks));
     });

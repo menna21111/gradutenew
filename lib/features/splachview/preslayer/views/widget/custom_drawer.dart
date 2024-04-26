@@ -3,6 +3,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
+  const CustomDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -61,12 +63,12 @@ class CustomDrawer extends StatelessWidget {
     );
   }
 
-  Widget _buildDrawerHeader() {
+  /* Widget _buildDrawerHeader() {
     // You can customize this header according to your design
     return Column(
       children: [Image.asset('assets/be563d7bfaefe67696fab70f7524d5b1.gif')],
     );
-  }
+  } */
 
   Widget _buildDrawerItem({
     required IconData icon,
@@ -76,11 +78,11 @@ class CustomDrawer extends StatelessWidget {
     return ListTile(
       leading: Icon(
         icon,
-        color: Color.fromARGB(255, 116, 35, 6),
+        color: const Color.fromARGB(255, 116, 35, 6),
       ),
       title: Text(
         text,
-        style: TextStyle(
+        style: const TextStyle(
           fontFamily: 'Inter',
           fontSize: 18,
           color: Color.fromARGB(255, 116, 35, 6),

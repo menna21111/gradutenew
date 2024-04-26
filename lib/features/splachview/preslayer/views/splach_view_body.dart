@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:graduation/core/utils/app_router.dart';
-
 import 'package:graduation/core/utils/assets.dart';
 import 'package:graduation/core/utils/style.dart';
 
-class splachviewbody extends StatefulWidget {
-  const splachviewbody({super.key});
+class SplachViewBody extends StatefulWidget {
+  const SplachViewBody({super.key});
 
   @override
-  State<splachviewbody> createState() => _splachviewbodyState();
+  State<SplachViewBody> createState() => _SplachViewBodyState();
 }
 
-class _splachviewbodyState extends State<splachviewbody>
+class _SplachViewBodyState extends State<SplachViewBody>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<Offset> slidingAnimation;
@@ -28,10 +25,10 @@ class _splachviewbodyState extends State<splachviewbody>
             child: Image.asset(
               AssetsData.logo,
             )),
-        SizedBox(
+        const SizedBox(
           height: 4,
         ),
-        Text(
+        const Text(
           'welcome to egypt ...',
           textAlign: TextAlign.center,
           style: Textstyle.textStyle12,
@@ -39,6 +36,5 @@ class _splachviewbodyState extends State<splachviewbody>
       ],
     ));
   }
-  
 }
 // }

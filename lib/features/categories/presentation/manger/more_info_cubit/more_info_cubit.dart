@@ -1,21 +1,19 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 part 'more_info_state.dart';
 
 class MoreInfoCubit extends Cubit<MoreInfoState> {
   MoreInfoCubit() : super(MoreInfoInitial());
-  String? Text;
-  bool? showView_more_Details;
+  String? text;
+  bool? showViewMoreDetails;
   Future<void> viewmore({required text, required bool showmore}) async {
     if (text != null && text.length > 580 && !showmore) {
-      Text = text.substring(0, 580);
-      showView_more_Details = true;
-      emit(showFullTextstate());
+      text = text.substring(0, 580);
+      showViewMoreDetails = true;
+      emit(ShowFullTextState());
     } else {
-      Text = text;
-      showView_more_Details = false;
+      text = text;
+      showViewMoreDetails = false;
     }
-    emit(showbriefstate());
+    emit(ShowBriefState());
   }
 }

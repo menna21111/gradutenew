@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class infoimg extends StatelessWidget {
-  const infoimg({
+class InfoImg extends StatelessWidget {
+  const InfoImg({
     super.key,
     required this.imagelink,
   });
@@ -10,7 +10,7 @@ class infoimg extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: SizedBox(
           height: MediaQuery.of(context).size.height * .31,

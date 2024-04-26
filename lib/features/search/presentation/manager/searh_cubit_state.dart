@@ -1,21 +1,22 @@
 //part of 'search_cubit.dart';
 import 'package:graduation/features/categories/data/model/landmark_on_cat_model/landmark_on_cat_model.dart';
 
-sealed class searchstate {
-   const searchstate();
-
-  @override
-  List<Object> get props => [];
+sealed class SearchStates {
+  const SearchStates();
 }
-final class SearchResultInitialState extends searchstate {}
-class searchloading extends searchstate{}
-class searchsuccess extends searchstate{
+
+final class SearchResultInitialState extends SearchStates {}
+
+class SearchLoading extends SearchStates {}
+
+class SearchSuccess extends SearchStates {
   final List<LandmarkOnCatModel> landmark;
 
-  const searchsuccess(this.landmark);
+  const SearchSuccess(this.landmark);
 }
-class searchfailure extends searchstate{
-   final String errorMessage;
 
-  const  searchfailure(this.errorMessage);
+class SearchFailure extends SearchStates {
+  final String errorMessage;
+
+  const SearchFailure(this.errorMessage);
 }

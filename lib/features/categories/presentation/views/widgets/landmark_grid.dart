@@ -7,10 +7,8 @@ import 'package:graduation/features/categories/presentation/views/widgets/custom
 
 import '../../../../../core/widgets/loading_widget.dart';
 
-class landmarkGrid extends StatelessWidget {
-  landmarkGrid({Key? key})
-      : super(key: key);
-
+class LandMarkGrid extends StatelessWidget {
+  const LandMarkGrid({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,33 +16,33 @@ class landmarkGrid extends StatelessWidget {
       builder: (context, state) {
         if (state is LandmarksCubitSuccess) {
           return Padding(
-              padding: const EdgeInsets.only(left: 11, right: 17),
-              child: GridView.builder(
-                physics: const BouncingScrollPhysics(),
-                itemCount: state.Landmarklist.length,
-                clipBehavior: Clip.none,                
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: (MediaQuery.of(context).size.width * .431) /
-                      (MediaQuery.of(context).size.height * .253),
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 22,
-                  mainAxisSpacing: 15,
-                ),
-                itemBuilder: (context, index) {
-                  return CustomCard(
-                    imglink:'assets/img/landmarks/${state.Landmarklist[index].imageCover!}',
-
-                    text: state.Landmarklist[index].name!,
-                    onTap: () => GoRouter.of(context).push('/Information',extra:state.Landmarklist[index]),
-                  );
-                },
+            padding: const EdgeInsets.only(left: 11, right: 17),
+            child: GridView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: state.landmarklist.length,
+              clipBehavior: Clip.none,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                childAspectRatio: (MediaQuery.of(context).size.width * .431) /
+                    (MediaQuery.of(context).size.height * .253),
+                crossAxisCount: 2,
+                crossAxisSpacing: 22,
+                mainAxisSpacing: 15,
               ),
-            
+              itemBuilder: (context, index) {
+                return CustomCard(
+                  imglink:
+                      'assets/img/landmarks/${state.landmarklist[index].imageCover!}',
+                  text: state.landmarklist[index].name!,
+                  onTap: () => GoRouter.of(context)
+                      .push('/Information', extra: state.landmarklist[index]),
+                );
+              },
+            ),
           );
         } else if (state is LandmarksCubitFailure) {
           return CustomErrorWidget(errMessage: state.errMessage);
         } else {
-          return Center(child: LoadingWidget());
+          return const Center(child: LoadingWidget());
         }
       },
     );
