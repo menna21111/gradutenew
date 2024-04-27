@@ -1,5 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:graduation/core/utils/api_service.dart';
 import 'package:graduation/features/categories/data/model/categories_model.dart';
 import 'package:graduation/features/categories/data/model/landmark_on_cat_model/landmark_on_cat_model.dart';
 import 'package:graduation/features/categories/presentation/views/landmarks_view.dart';
@@ -8,6 +11,9 @@ import 'package:graduation/features/categories/presentation/views/info_view.dart
 import 'package:graduation/features/home/data/models/most_visited_model/most_visited_model.dart';
 import 'package:graduation/features/home/pres/views/home_view.dart';
 import 'package:graduation/features/introduction_screen/presentation/views/introduction_screen_view.dart';
+import 'package:graduation/features/search/data/repos/search_repo_imp.dart';
+import 'package:graduation/features/search/presentation/manager/searh_cubit.dart';
+import 'package:graduation/features/search/presentation/views/widgets/search_view_body.dart';
 import 'package:graduation/features/splachview/preslayer/views/widget/splahview.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -57,9 +63,11 @@ abstract class AppRouter {
                 landmaroncatkmodel: state.extra as LandmarkOnCatModel,
               )),
       GoRoute(
-          path: '/searchview.dart',
-          builder: (context, state) => Infoview(
-                landmaroncatkmodel: state.extra as LandmarkOnCatModel,
+          path: '/searchview',
+          builder: (context, state) => BlocProvider(
+                create: (context) =>
+                    SearchCubit(SearchRepoImp(apiService: ApiService(Dio()))),
+                child: const SearchViewBody(),
               )),
       GoRoute(
           path:

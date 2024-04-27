@@ -13,9 +13,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       iconTheme: const IconThemeData(color: Colors.white),
-      //automaticallyImplyLeading: false,
       backgroundColor: abarcolor,
-      elevation: 1, // Removes the shadow
+      elevation: 1,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
