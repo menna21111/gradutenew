@@ -1,10 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation/features/search/data/repos/search_repo.dart';
-import 'package:graduation/features/search/presentation/manager/searh_cubit_state.dart';
+import 'package:graduation/features/search/presentation/manager/searh_state.dart';
 
-//part 'search_cubit_state.dart';
 class SearchCubit extends Cubit<SearchStates> {
-  SearchCubit(this.searchRepo) : super(SearchLoading());
+  SearchCubit(this.searchRepo) : super(SearchResultInitialState());
   final SearchRepo searchRepo;
 
   Future fetchSearchResult({required String name}) async {

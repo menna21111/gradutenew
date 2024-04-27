@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:graduation/core/custom_loading_widget.dart';
 import 'package:graduation/features/categories/presentation/views/widgets/customcard.dart';
 import 'package:graduation/features/search/presentation/manager/searh_cubit.dart';
-import 'package:graduation/features/search/presentation/manager/searh_cubit_state.dart';
+import 'package:graduation/features/search/presentation/manager/searh_state.dart';
 
 class SearhResultGrid extends StatelessWidget {
   const SearhResultGrid({super.key});
@@ -40,8 +40,6 @@ class SearhResultGrid extends StatelessWidget {
       } else if (state is SearchLoading) {
         return const CustomLoadingWidget();
       } else {
-        //   GoRouter.of(context).push('/Information');
-        // }
         return const SizedBox();
       }
     });
