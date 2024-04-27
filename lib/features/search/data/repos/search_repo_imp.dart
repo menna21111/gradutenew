@@ -24,7 +24,7 @@ class SearchRepoImp implements SearchRepo {
       return right(landmark);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure(''));
+        return left(ServerFailure.fromDiorError(e));
       } else {
         return left(ServerFailure(e.toString()));
       }
